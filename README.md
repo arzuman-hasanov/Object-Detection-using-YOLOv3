@@ -1,138 +1,127 @@
-# Train Detection using YOLOv3 
+# Train Detection using YOLOv3 🚆
 
+## 📌 Project Overview
 
+This project demonstrates custom **YOLOv3 object detection** for detecting trains in images.
 
-📌 Project Overview
+The model:
 
-This project demonstrates how to build and use a custom YOLOv3 object detection model.
+* Detects trains
+* Calculates detection confidence
+* Draws bounding boxes
+* Applies Non-Maximum Suppression (NMS)
+* Displays detection results using OpenCV
 
-The trained model processes input images and:
+## 🧠 Model
 
-Detects trains
-Calculates detection confidence
-Draws bounding boxes around detected trains
-Applies Non-Maximum Suppression (NMS) to remove overlapping detections
-Displays the detection results using OpenCV
-🧠 Model
+* **Architecture:** YOLOv3
+* **Object class:** Train
+* **Input resolution:** 416 × 416
+* **Number of classes:** 1
+* **Detection scales:** 3
 
-The project uses a customized YOLOv3 architecture configured for a single object class.
+## 🛠️ Technologies
 
-Object class:
+* Python
+* OpenCV
+* NumPy
+* YOLOv3
+* Darknet
+* OpenCV DNN
 
-Train
+## 🔍 Detection Pipeline
 
-Input resolution:
-
-416 × 416
-
-Number of classes:
-
-1
-
-The YOLO configuration contains three detection scales, allowing the model to detect objects of different sizes.
-
-🛠️ Technologies Used
-Python
-OpenCV
-NumPy
-YOLOv3
-Darknet
-OpenCV DNN module
-🔍 How It Works
-
-The detection pipeline follows these steps:
-
+```text
 Input Image
-     ↓
-Image Preprocessing
-     ↓
-Resize to 416 × 416
-     ↓
-Create YOLO Blob
-     ↓
+    ↓
+Preprocessing
+    ↓
 YOLOv3 Inference
-     ↓
-Calculate Confidence
-     ↓
+    ↓
+Confidence Calculation
+    ↓
 Bounding Box Detection
-     ↓
+    ↓
 Non-Maximum Suppression
-     ↓
-Display Detected Train
-📂 Project Files
+    ↓
+Detected Train
+```
+
+## 📂 Project Files
+
+```text
 .
 ├── yolov3_testing.cfg
 ├── yolov3_training_last.weights
 ├── detection.py
-├── sample images/
+├── sample_images/
 └── README.md
+```
 
-The exact filenames may vary depending on how the model and dataset are organized in the repository.
-
-⚙️ Installation
+## ⚙️ Installation
 
 Clone the repository:
 
+```bash
 git clone https://github.com/your-username/your-repository.git
 cd your-repository
+```
 
-Install the required Python packages:
+Install dependencies:
 
+```bash
 pip install opencv-python numpy
-▶️ Running the Detector
+```
 
-Make sure the following files are available:
+## ▶️ Usage
 
-yolov3_training_last.weights
+Make sure the model files are available:
+
+```text
 yolov3_testing.cfg
+yolov3_training_last.weights
+```
 
-Update the image path in the Python script if necessary:
+Update the image path in `detection.py`:
 
+```python
 images_path = glob.glob("path/to/images/*.jpg")
+```
 
-Then run:
+Run the detector:
 
+```bash
 python detection.py
+```
 
-The program will open each image and display detected trains with bounding boxes.
+Detected trains will be displayed with bounding boxes.
 
-🎯 Detection Settings
+## 🎯 Detection Settings
 
-The detector currently uses:
+| Setting              | Value     |
+| -------------------- | --------- |
+| Input size           | 416 × 416 |
+| Classes              | 1         |
+| Confidence threshold | 0.3       |
+| NMS threshold        | 0.4       |
+| Learning rate        | 0.001     |
+| Momentum             | 0.9       |
+| Weight decay         | 0.0005    |
 
-Confidence threshold: 0.3
-NMS threshold: 0.4
-YOLO input size: 416 × 416
-Number of classes: 1
+## 🏋️ Training Configuration
 
-Example detection logic:
+The YOLOv3 configuration was modified for a single object class.
 
-if confidence > 0.3:
-    # Object detected
+The final detection layers use:
 
-Non-Maximum Suppression is then applied to reduce duplicate or overlapping bounding boxes.
-
-🏋️ Training Configuration
-
-The YOLOv3 configuration was modified for custom training with one class.
-
-Important parameters include:
-
-width = 416
-height = 416
-classes = 1
-learning_rate = 0.001
-momentum = 0.9
-decay = 0.0005
-
-The final convolutional layers are configured with:
-
+```text
 filters = 18
+```
 
-This follows the YOLOv3 formula:
+This is calculated using:
 
+```text
 filters = (classes + 5) × 3
-
-For one class:
-
-(1 + 5) × 3 = 18
+       = (1 + 5) × 3
+       = 18
+```
