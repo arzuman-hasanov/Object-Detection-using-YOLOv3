@@ -1,8 +1,6 @@
 # Train Detection using YOLOv3 
 
-A custom object detection project that uses YOLOv3 and OpenCV to detect trains in images.
 
-The model was trained using a custom dataset with a single object class, Train, and can identify trains by drawing bounding boxes around detected objects.
 
 📌 Project Overview
 
