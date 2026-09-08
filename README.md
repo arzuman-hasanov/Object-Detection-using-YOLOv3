@@ -1,4 +1,4 @@
-Train Detection using YOLOv3 🚆
+# Train Detection using YOLOv3 
 
 A custom object detection project using YOLOv3 and OpenCV to detect trains in images.
 
