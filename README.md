@@ -1,7 +1,5 @@
 # Train Detection using YOLOv3 🚆
 
-## 📌 Project Overview
-
 This project demonstrates custom **YOLOv3 object detection** for detecting trains in images.
 
 The model:
